@@ -69,7 +69,7 @@ Congratulations!!!!
 
 This is how you can get started. Now, you need to add more functions to your packages. 
 
-## Pytest
+## Running Pytest/Unit test of the functions.
 
 ```bash
 (myenv) 🙏 pip install pytest-cov
