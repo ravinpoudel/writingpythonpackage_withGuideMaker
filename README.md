@@ -57,4 +57,15 @@ Following is the folder tree for repo_name: `GuideMaker` where package_name: `gu
 └── versioneer.py
 
 ```
+Now you are ready to install your python package!!!
+
+```bash
+# cd to the folder where you have setup.py file
+(myenv) 🙏 pip install .
+
+(myenv) 🙏 guidemaker -h
+```
+Congratulations!!!! 
+
+This is how you can get started. Now, you need to add more functions to your packages. 
 
