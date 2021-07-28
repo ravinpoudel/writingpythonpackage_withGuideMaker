@@ -57,6 +57,52 @@ Following is the folder tree for repo_name: `GuideMaker` where package_name: `gu
 └── versioneer.py
 
 ```
+Lets look little in detail on file `setup.py`.
+
+```
+from setuptools import setup
+import versioneer
+
+requirements = [
+    # package requirements go here
+]
+
+setup(
+    name='GuideMaker',
+    version=versioneer.get_version(),
+    cmdclass=versioneer.get_cmdclass(),
+    description="Software to design CRISPR-Cas guide RNA pools in non-model genomes",
+    license="MIT",
+    author="Ravin Poudel",
+    author_email='rp3448@ufl.edu',
+    url='https://github.com/ravinpoudel/GuideMaker',
+    packages=['guidemaker'],
+    entry_points={
+        'console_scripts': [
+            'guidemaker=guidemaker.cli:cli'
+        ]
+    },
+    install_requires=requirements,
+    keywords='GuideMaker',
+    classifiers=[
+        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
+    ]
+)
+
+
+```
+Lets look more into another file `MANIFEST.in`
+
+
+```
+include versioneer.py
+
+```
+
+
+
 Now you are ready to install your python package!!!
 
 ```bash
