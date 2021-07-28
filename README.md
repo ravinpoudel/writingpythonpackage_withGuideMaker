@@ -38,22 +38,43 @@ Following is the folder tree for `mypackage`
 ├── .gitattributes
 ├── .gitignore
 ├── .travis.yml
+├── GuideMaker
+│   ├── .circleci
+│   │   └── config.yml
+│   ├── .codacy.yml
+│   ├── .coveragerc
+│   ├── .gitattributes
+│   ├── .gitignore
+│   ├── .travis.yml
+│   ├── LICENSE
+│   ├── MANIFEST.in
+│   ├── README.rst
+│   ├── appveyor.yml
+│   ├── conda.recipe
+│   │   └── meta.yaml
+│   ├── guidemaker
+│   │   ├── __init__.py
+│   │   ├── __main__.py
+│   │   ├── _version.py
+│   │   └── cli.py
+│   ├── setup.cfg
+│   ├── setup.py
+│   ├── tests
+│   │   ├── __init__.py
+│   │   └── test_cli.py
+│   └── versioneer.py
 ├── LICENSE
 ├── MANIFEST.in
 ├── README.rst
 ├── appveyor.yml
 ├── conda.recipe
 │   └── meta.yaml
-├── mypackage
-│   ├── __init__.py
-│   ├── __main__.py
-│   ├── _version.py
-│   └── cli.py
 ├── setup.cfg
 ├── setup.py
 ├── tests
 │   ├── __init__.py
 │   └── test_cli.py
 └── versioneer.py
+
 ```
 
