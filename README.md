@@ -1,6 +1,8 @@
 # How to start a python package?
 Starting a python package might be overwhelming to newbiees, which was the case for me. At the begining I was following the skeleton/folder structures from some of the published python packages from my mentors or lab- which is a good way to start. Even better will be use the tools such as cookie-cutter to to structure the architecure(skeleton) for a python package. There are many great cookie-cutter template with different features. Depending on your need such as template for conda-recipe, template for Cicle-CI or Travis ...etc, you can search for appropriate cookie-cutter template. For GuideMaker, I use the template from conda (https://github.com/conda/cookiecutter-conda-python). You can follow the setup steps as decribed in the repo. During the setup, you can provide various meta data for the package. 
 
+
+## cookiecutter
 ```
 # install cookiecutter
 $ conda install cookiecutter
@@ -57,6 +59,9 @@ Following is the folder tree for repo_name: `GuideMaker` where package_name: `gu
 └── versioneer.py
 
 ```
+
+## setup.py
+
 Lets look little in detail on file `setup.py`.
 
 ```
@@ -154,6 +159,7 @@ setup(
 
 
 ```
+## MANIFEST.in
 Lets look more into another file `MANIFEST.in`
 
 
@@ -190,7 +196,7 @@ Congratulations!!!!
 
 This is how you can get started. Now, you need to add more functions to your packages. The actual code that has been implented for `__main__.py` and `__cli__.py` are available [here](https://github.com/USDA-ARS-GBRU/GuideMaker/tree/main/guidemaker)
 
-## Running Pytest/Unit test of the functions.
+## Pytest
 
 ```bash
 (myenv) 🙏 pip install pytest-cov
