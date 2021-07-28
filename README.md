@@ -266,6 +266,8 @@ Example of writing pytests for functions in the softare is available [here](http
 
 ## codecov
 
+## build and test within github
+
 ## GitHub actions and workflow
 
 ## How to build a docker?
