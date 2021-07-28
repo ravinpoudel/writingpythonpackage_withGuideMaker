@@ -67,7 +67,7 @@ Now you are ready to install your python package!!!
 ```
 Congratulations!!!! 
 
-This is how you can get started. Now, you need to add more functions to your packages. 
+This is how you can get started. Now, you need to add more functions to your packages. The actual code that has been implented for `__main__.py` and `__cli__.py` are available [here](https://github.com/USDA-ARS-GBRU/GuideMaker/tree/main/guidemaker)
 
 ## Running Pytest/Unit test of the functions.
 
@@ -90,4 +90,7 @@ Coverage XML written to file coverage.xml
 (3 durations < 0.005s hidden.  Use -vv to show these durations.)
 ==================================================== 1 passed, 2 warnings in 0.11s ====================================================
 ```
+Example of writing pytests for functions in the softare is available [here](https://github.com/USDA-ARS-GBRU/GuideMaker/tree/main/tests).
+
+
 
