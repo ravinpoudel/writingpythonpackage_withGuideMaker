@@ -26,7 +26,7 @@ $ project_short_description [Short description]: Enter a short description about
 ```
 
 
-Following is the folder tree for `GuideMaker` where the name of my python package is `guidemaker`.
+Following is the folder tree for repo_name: `GuideMaker` where package_name: `guidemaker`.
 
 ```
 (myenv) 🙏 tree -a
@@ -38,37 +38,17 @@ Following is the folder tree for `GuideMaker` where the name of my python packag
 ├── .gitattributes
 ├── .gitignore
 ├── .travis.yml
-├── GuideMaker
-│   ├── .circleci
-│   │   └── config.yml
-│   ├── .codacy.yml
-│   ├── .coveragerc
-│   ├── .gitattributes
-│   ├── .gitignore
-│   ├── .travis.yml
-│   ├── LICENSE
-│   ├── MANIFEST.in
-│   ├── README.rst
-│   ├── appveyor.yml
-│   ├── conda.recipe
-│   │   └── meta.yaml
-│   ├── guidemaker
-│   │   ├── __init__.py
-│   │   ├── __main__.py
-│   │   ├── _version.py
-│   │   └── cli.py
-│   ├── setup.cfg
-│   ├── setup.py
-│   ├── tests
-│   │   ├── __init__.py
-│   │   └── test_cli.py
-│   └── versioneer.py
 ├── LICENSE
 ├── MANIFEST.in
 ├── README.rst
 ├── appveyor.yml
 ├── conda.recipe
 │   └── meta.yaml
+├── guidemaker
+│   ├── __init__.py
+│   ├── __main__.py
+│   ├── _version.py
+│   └── cli.py
 ├── setup.cfg
 ├── setup.py
 ├── tests
