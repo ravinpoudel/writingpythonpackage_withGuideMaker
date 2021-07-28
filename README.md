@@ -294,3 +294,6 @@ Example of writing pytests for functions in the softare is available [here](http
 ## Bioconda recipe
 - pull request
 - Need to make comments prior so that someone will start looking your code for branch merge
+
+## How to develop a web app using streamlit?
+
