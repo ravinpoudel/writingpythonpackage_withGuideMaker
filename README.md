@@ -284,4 +284,13 @@ Example of writing pytests for functions in the softare is available [here](http
 - resource setup
 - how to do this for USDA
 
+## AWS web deployment
+ - Route 53
+ - Load balancer
+ - Auto scaling
+ - Linking DNS name from load balancer to domain name via route 53
+ - Adding SSL cerficate
+ 
 ## Bioconda recipe
+- pull request
+- Need to make comments prior so that someone will start looking your code for branch merge
