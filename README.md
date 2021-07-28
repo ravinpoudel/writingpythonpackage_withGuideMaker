@@ -277,6 +277,9 @@ Example of writing pytests for functions in the softare is available [here](http
 ## CD/CI with workflows and actions file
 
 ## Automate python package creation
+- manage package access
+
+## Release a version of the software
 
 ## Put docker images in github registry
 
