@@ -62,6 +62,10 @@ Following is the folder tree for repo_name: `GuideMaker` where package_name: `gu
 
 ## setup.py
 
+What is setup.py?
+
+`setup.py` is a python file, the presence of which is an indication that the module/package you are about to install has likely been packaged and distributed with Distutils, which is the standard for distributing Python Modules.
+
 Lets look little in detail on file `setup.py`.
 
 ```
