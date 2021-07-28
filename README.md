@@ -26,7 +26,7 @@ $ project_short_description [Short description]: Enter a short description about
 ```
 
 
-Following is the folder tree for `mypackage`
+Following is the folder tree for `GuideMaker` where the name of my python package is `guidemaker`.
 
 ```
 (myenv) 🙏 tree -a
