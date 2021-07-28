@@ -69,3 +69,25 @@ Congratulations!!!!
 
 This is how you can get started. Now, you need to add more functions to your packages. 
 
+## Pytest
+
+```bash
+(myenv) 🙏 pip install pytest-cov
+(myenv) 🙏 pytest
+
+
+---------- coverage: platform darwin, python 3.7.10-final-0 ----------
+Name                     Stmts   Miss  Cover   Missing
+------------------------------------------------------
+guidemaker/__init__.py       3      0   100%
+guidemaker/cli.py           10      2    80%   27-28
+------------------------------------------------------
+TOTAL                       13      2    85%
+Coverage XML written to file coverage.xml
+
+======================================================== slowest 20 durations =========================================================
+
+(3 durations < 0.005s hidden.  Use -vv to show these durations.)
+==================================================== 1 passed, 2 warnings in 0.11s ====================================================
+```
+
