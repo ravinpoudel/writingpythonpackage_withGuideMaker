@@ -11,17 +11,17 @@ $ cookiecutter https://github.com/conda/cookiecutter-conda-python.git
 # Once cookiecutter clones the template, you will be asked a series of questions related to your project::
 $ full_name [Full Name]: Enter your full name.
 
-$ email [Email Address]: Enter your email address.
+$ email [Email Address]: Enter your email address
 
-$ github_username [github_username]: Enter your github username.
+$ github_username [github_username]: Enter your github username
 
-$ repo_name [repository_name]: Enter the name of your project's repository.
+$ repo_name [repository_name]: Enter the name of your project's repository
 
-$ package_name [package_name]: Enter the name of your package.
+$ package_name [package_name]: Enter the name of your package
 
-$ application_name [application]: Enter the name of your GUI application.
+$ application_name [application]: Enter the name of your GUI application
 
-$ project_short_description [Short description]: Enter a short description about your project.
+$ project_short_description [Short description]: Enter a short description about your project
 
 
 ```
