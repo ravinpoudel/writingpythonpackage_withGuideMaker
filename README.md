@@ -25,4 +25,31 @@ $ application_name [application]: Enter the name of your GUI application
 $ project_short_description [Short description]: Enter a short description about your project
 
 ```
+Following is the folder tree for `mypackage`
+(myenv) 🙏 tree -a
+.
+├── .circleci
+│   └── config.yml
+├── .codacy.yml
+├── .coveragerc
+├── .gitattributes
+├── .gitignore
+├── .travis.yml
+├── LICENSE
+├── MANIFEST.in
+├── README.rst
+├── appveyor.yml
+├── conda.recipe
+│   └── meta.yaml
+├── mypackage
+│   ├── __init__.py
+│   ├── __main__.py
+│   ├── _version.py
+│   └── cli.py
+├── setup.cfg
+├── setup.py
+├── tests
+│   ├── __init__.py
+│   └── test_cli.py
+└── versioneer.py
 
