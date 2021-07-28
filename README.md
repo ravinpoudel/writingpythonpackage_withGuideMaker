@@ -23,9 +23,12 @@ $ package_name [package_name]: Enter the name of your package
 $ application_name [application]: Enter the name of your GUI application
 
 $ project_short_description [Short description]: Enter a short description about your project
+```
+
+
+Following is the folder tree for `mypackage`
 
 ```
-Following is the folder tree for `mypackage`
 (myenv) 🙏 tree -a
 .
 ├── .circleci
@@ -52,4 +55,5 @@ Following is the folder tree for `mypackage`
 │   ├── __init__.py
 │   └── test_cli.py
 └── versioneer.py
+```
 
