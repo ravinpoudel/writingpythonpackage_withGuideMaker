@@ -159,7 +159,47 @@ setup(
 
 
 ```
+## setup.cfg
+What is setup.cfg? What it does? How to use it?
+
+```
+[flake8]
+max-line-length = 100
+ignore = E122,E123,E126,E127,E128,E731,E722
+exclude = build,guidemaker/_version.py,tests,conda.recipe,.git,versioneer.py,benchmarks,.asv
+
+[tool:pytest]
+norecursedirs= .* *.egg* build dist conda.recipe
+addopts =
+    --cov=guidemaker --cov-report xml
+    --ignore setup.py
+    --ignore run_test.py
+    --cov-report term-missing
+    --tb native
+    --strict
+    --durations=20
+env =
+    PYTHONHASHSEED=0
+markers =
+    serial: execute test serially (to avoid race conditions)
+
+[versioneer]
+VCS = git
+versionfile_source = guidemaker/_version.py
+versionfile_build = guidemaker/_version.py
+tag_prefix =
+parentdir_prefix = GuideMaker-
+
+[bdist_wheel]
+universal=1
+
+```
+
+
+
 ## MANIFEST.in
+What is MANIFEST.in? What it does? How to use it?
+
 Lets look more into another file `MANIFEST.in`
 
 
@@ -197,7 +237,7 @@ Congratulations!!!!
 This is how you can get started. Now, you need to add more functions to your packages. The actual code that has been implented for `__main__.py` and `__cli__.py` are available [here](https://github.com/USDA-ARS-GBRU/GuideMaker/tree/main/guidemaker)
 
 ## Pytest
-
+What is Pytest? What it does? How to use it?
 ```bash
 (myenv) 🙏 pip install pytest-cov
 (myenv) 🙏 pytest
@@ -220,4 +260,26 @@ Coverage XML written to file coverage.xml
 Example of writing pytests for functions in the softare is available [here](https://github.com/USDA-ARS-GBRU/GuideMaker/tree/main/tests).
 
 
+## circle ci
 
+## coverage 
+
+## codecov
+
+## GitHub actions and workflow
+
+## How to build a docker?
+
+## How to create a package in gitHub?
+
+## CD/CI with workflows and actions file
+
+## Automate python package creation
+
+## Put docker images in github registry
+
+## Automate deployment to AWS Fargate
+- resource setup
+- how to do this for USDA
+
+## Bioconda recipe
