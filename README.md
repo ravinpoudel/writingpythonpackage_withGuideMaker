@@ -63,8 +63,7 @@ Following is the folder tree for repo_name: `GuideMaker` where package_name: `gu
 ## setup.py
 
 What is setup.py?
-
-`setup.py` is a python file, the presence of which is an indication that the module/package you are about to install has likely been packaged and distributed with Distutils, which is the standard for distributing Python Modules.
+The setup script is the centre of all activity in building, distributing, and installing modules using the Distutils. The presence of this file indicats that the module/package you are about to install has likely been packaged and distributed with Distutils, which is the standard for distributing Python Modules. Additionally, this file allows one to define the package requirement as well as the metadata about the package.
 
 Lets look little in detail on file `setup.py`.
 
