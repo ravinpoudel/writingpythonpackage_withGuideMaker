@@ -279,6 +279,10 @@ Example of writing pytests for functions in the softare is available [here](http
 
 ## circle ci
 
+CircleCI is a modern continuous integration and continuous delivery (CI/CD) platform. CircleCI automates build, test, and deployment of software.
+
+
+
 ## coverage 
 
 ## codecov
