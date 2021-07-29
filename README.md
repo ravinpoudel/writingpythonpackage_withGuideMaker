@@ -162,6 +162,7 @@ setup(
 
 
 ```
+
 ## setup.cfg
 What is setup.cfg? What it does? How to use it?
 
@@ -170,10 +171,11 @@ setup.py is the file with the actual instructions how to build your software. Th
 setup.cfg is a file which might be used to specify such options in addition to reading the command line when calling python setup.py <somecommand>.
     
 [Documentation of setup.cfg](https://docs.python.org/2.7/distutils/configfile.html)
-    
-    Often, it’s not possible to write down everything needed to build a distribution a priori: you may need to get some information from the user, or from the user’s system, in order to proceed. As long as that information is fairly simple—a list of directories to search for C header files or libraries, for example—then providing a configuration file, setup.cfg, for users to edit is a cheap and easy way to solicit it. Configuration files also let you provide default values for any command option, which the installer can then override either on the command-line or by editing the config file.
 
-```
+Often, it’s not possible to write down everything needed to build a distribution a priori: you may need to get some information from the user, or from the user’s system, in order to proceed. As long as that information is fairly simple—a list of directories to search for C header files or libraries, for example—then providing a configuration file, setup.cfg, for users to edit is a cheap and easy way to solicit it. Configuration files also let you provide default values for any command option, which the installer can then override either on the command-line or by editing the config file.
+
+    
+```bash
 [flake8]
 max-line-length = 100
 ignore = E122,E123,E126,E127,E128,E731,E722
