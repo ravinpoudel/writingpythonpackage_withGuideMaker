@@ -165,6 +165,14 @@ setup(
 ## setup.cfg
 What is setup.cfg? What it does? How to use it?
 
+setup.py is the file with the actual instructions how to build your software. These instructions might have some configuration options, e.g. for unit tests you might be able to indicate whether test coverage should be computed or not, or the install prefix etc.
+
+setup.cfg is a file which might be used to specify such options in addition to reading the command line when calling python setup.py <somecommand>.
+    
+[Documentation of setup.cfg](https://docs.python.org/2.7/distutils/configfile.html)
+    
+    Often, it’s not possible to write down everything needed to build a distribution a priori: you may need to get some information from the user, or from the user’s system, in order to proceed. As long as that information is fairly simple—a list of directories to search for C header files or libraries, for example—then providing a configuration file, setup.cfg, for users to edit is a cheap and easy way to solicit it. Configuration files also let you provide default values for any command option, which the installer can then override either on the command-line or by editing the config file.
+
 ```
 [flake8]
 max-line-length = 100
@@ -202,6 +210,10 @@ universal=1
 
 ## MANIFEST.in
 What is MANIFEST.in? What it does? How to use it?
+
+When building a source distribution for your package, by default only a minimal set of files are included. You may find yourself wanting to include extra files in the source distribution, such as an authors/contributors file, a docs/ directory, or a directory of data files used for testing purposes. There may even be extra files that you need to include; for example, if your setup.py computes your project’s long_description by reading from both a README and a changelog file, you’ll need to include both those files in the sdist so that people that build or install from the sdist get the correct results.
+
+Adding & removing files to & from the source distribution is done by writing a MANIFEST.in file at the project root.
 
 Lets look more into another file `MANIFEST.in`
 
