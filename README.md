@@ -279,8 +279,66 @@ Example of writing pytests for functions in the softare is available [here](http
 
 ## circle ci
 
-CircleCI is a modern continuous integration and continuous delivery (CI/CD) platform. CircleCI automates build, test, and deployment of software.
+CircleCI is a modern continuous integration and continuous delivery (CI/CD) platform. CircleCI automates build, test, and deployment of software.CircleCI is a cloud-based CI/CD tool that automates installation and delivery procedures. It offers quick configuration and maintenance without any complexities. Since it is a cloud-based CI/CD tool, it eliminates the redundancy of a dedicated server and cuts down the cost of maintenance of a constant local server host. Moreover, the cloud-based server plans are scalable, robust, and facilitate faster deployment of applications.
 
+Continuous integration is a development approach where programmers merge their code into a shared repository, which is further verified by automated test and build sequences.Continuous integration focuses on test data and automatic system deployment to smoothen the integration process. 
+
+Continuous delivery is a software development process wherein the development phase is more streamlined to allow fast and efficient deliveries to production. A successful continuous delivery method requires ensuring that it can always be in a state where it can be immediately deployed. 
+                     
+```
+version: 2
+jobs:
+  build:
+    docker:
+      - image: continuumio/miniconda3:4.9.2
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+
+      
+      # - restore_cache:
+      #     keys:
+      #     - v1-dependencies-{{ checksum "environment.yml" }}
+      #     - v1-dependencies-
+      
+
+      - run:
+          name: install dependencies
+          command: |
+            # conda env create -q || conda env update -q
+            # source activate adj
+            conda install -qy conda-build anaconda-client pytest pytest-cov
+            conda install conda-verify
+            conda config --set auto_update_conda no
+            conda config --add channels conda-forge
+            conda config --add channels bioconda
+            # conda config --add channels gagan3012
+            conda info -a
+            conda build conda.recipe --no-test
+            conda install --use-local guidemaker
+
+      
+      # - save_cache:
+      #     paths:
+      #       - /opt/conda
+      #     key: v1-dependencies-{{ checksum "environment.yml" }}
+      
+
+      - run:
+          name: run tests
+          command: |
+            # source activate adj
+            pytest --color=yes -v --cov=guidemaker tests
+            conda install -c conda-forge codecov
+            codecov
+
+      - store_artifacts:
+          path: test-reports
+          destination: test-reports
+
+```
 
 
 ## coverage 
