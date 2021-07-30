@@ -365,6 +365,21 @@ jobs:
 ## Automate deployment to AWS Fargate
 - resource setup
 - how to do this for USDA
+                     
+```
+########################FINALIZE STEPS#########
+(awscli2) 🙏 cd /Users/admin/Documents/GITHUB_TOKEN/aws-saml-scinet
+(awscli2) 🙏 ./aws_saml_scinet.py 
+(awscli2) 🙏 cd /Users/admin/Documents/GuideMaker_ALL/GuideMaker/docker-images/webapp
+(awscli2) 🙏 docker build -f Dockerfile -t webapp .
+# check if app runs properly --locally using docker images
+(awscli2) 🙏 docker run -p 8501:8501 webapp
+(awscli2) 🙏 docker tag webapp 720171569227.dkr.ecr.us-east-1.amazonaws.com/guidemakerapp
+(awscli2) 🙏 docker login -u AWS -p $(aws ecr get-login-password --region us-east-1 --profile saml) 720171569227.dkr.ecr.us-east-1.amazonaws.com
+(awscli2) 🙏 docker push 720171569227.dkr.ecr.us-east-1.amazonaws.com/guidemakerapp
+                      
+                     
+```
 
 ## AWS web deployment
  - Route 53
