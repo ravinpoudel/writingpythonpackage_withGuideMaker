@@ -361,6 +361,10 @@ Often you can find these workflow and actions files template at [Github marker p
 
 ## How to build a docker?
 Docker container can be build and deploy at docker hub and other avenues. Here for GuideMaker we have want to publish it in [github regirsty](https://github.com/features/packages) so that everything is maintained at Github, and overcome some of the limitation of dockerhub. The process of creating a container image is similar to docker hub by using docker file. Ocne we have docker file, we can easily triggered the docker build and publishing to github registry using workflow and actions. Prior doing that, we need to get some developer authorization and add this to the `SECRETS` with the code repo. If you check the following workflow file then `github.repository_owner` and `MY_GITHUB_RESISTRY_TOKEN` are the two information that you need to setup for your repo. Within the repo go to the setting, then to the `SECRETS`, then add the authetication informations. You don't have to do anythin for `github.repository_owner` as this will be default, but need to add token for `MY_GITHUB_RESISTRY_TOKEN` - go to profile > Settings> Developer Settings > Personal access tokens.
+    
+    
+**Notes:** When docker image get published, it will be abailable under `Packages` section of you github home page. You can modify the visibility settings as well as linked the published images to the respective repo.
+
 
 ```text
 name: Publish Docker image
