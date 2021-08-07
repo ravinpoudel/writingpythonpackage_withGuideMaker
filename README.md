@@ -360,7 +360,55 @@ Often you can find these workflow and actions files template at [Github marker p
 
 
 ## How to build a docker?
-Docker container can be build and deploy at docker hub and other avenues. Here for GuideMaker we have want to publish it in [github regirsty](https://github.com/features/packages) so that everything is maintained at Github, and overcome some of the limitation of dockerhub. The process of creating a container image is similar to docker hub by using docker file. Ocne we have docker file, we can easily triggered the docker build and publishing to github registry using workflow and actions. Prior doing that, we need to get some developer authorization and add this to the `SECRETS` with the code repo. 
+Docker container can be build and deploy at docker hub and other avenues. Here for GuideMaker we have want to publish it in [github regirsty](https://github.com/features/packages) so that everything is maintained at Github, and overcome some of the limitation of dockerhub. The process of creating a container image is similar to docker hub by using docker file. Ocne we have docker file, we can easily triggered the docker build and publishing to github registry using workflow and actions. Prior doing that, we need to get some developer authorization and add this to the `SECRETS` with the code repo. If you check the following workflow file then `github.repository_owner` and `MY_GITHUB_RESISTRY_TOKEN` are the two information that you need to setup for your repo. Within the repo go to the setting, then to the `SECRETS`, then add the authetication informations. You don't have to do anythin for `github.repository_owner` as this will be default, but need to add token for `MY_GITHUB_RESISTRY_TOKEN` - go to profile > Settings> Developer Settings > Personal access tokens.
+
+```text
+name: Publish Docker image
+on:
+  release:
+    branches: main
+
+jobs:
+  build-and-push-image:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Get short SHA
+      id: slug
+      run: echo "::set-output name=sha12::$(echo ${GITHUB_SHA} | cut -c1-12)"
+
+    - name: Login to GitHub Container Registry
+      uses: docker/login-action@v1
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.MY_GITHUB_RESISTRY_TOKEN }}
+
+    - name: Build AVX container image and push to ghcr
+      uses: docker/build-push-action@v2
+      with:
+        context: docker-images/avx
+        push: true
+        tags: ghcr.io/usda-ars-gbru/guidemaker-avx:sha-${{ steps.slug.outputs.sha12 }}
+
+    - name: Build NON-AVX container image and push to ghcr
+      uses: docker/build-push-action@v2
+      with:
+        context: docker-images/nonavx
+        push: true
+        tags: ghcr.io/usda-ars-gbru/guidemaker-nonavx:sha-${{ steps.slug.outputs.sha12 }}
+
+    - name: Build WEBAPP container image and push to ghcr
+      uses: docker/build-push-action@v2
+      with:
+        context: docker-images/webapp
+        push: true
+        tags: ghcr.io/usda-ars-gbru/guidemaker-webapp:sha-${{ steps.slug.outputs.sha12 }}
+
+```
 
 ## How to create a package in gitHub?
 
