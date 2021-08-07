@@ -418,11 +418,100 @@ jobs:
 
 
 ## Automate deployment to AWS Fargate
-- resource setup
-- how to do this for USDA
-                     
+Deployement to AWS Fargate can also be automate using workflow and actions. You can use the folowing actions file to do so. It shoud work for regular AWS account; however, will not work for USDA-AWS accout. One of the information/authetication we need to add to actions file, is the account credential for AWS account, which is fairly constant or doesnot have to be changes(every 15 min). In the case of USDA-AWS the credential get expire with some (10-15) mins and you need to generate new token with your username. So, rather we have been doing it mannually. `task-definition: .aws/first-run-task-definition.json` this is first done manually in AWS FArgate (AWS web page have tutotiral how to do that). Then, you can downlod it and save under `.aws` folder. Broadly, the following actions file - build a docker image, then push the bulild image to AWS registry, which then is used by AWS fargate to deploy the web app. Notes: We need to also manually create a AWS registry prior doing this.
+    
 ```
-########################FINALIZE STEPS#########
+# This workflow will build and push a new container image to Amazon ECR,
+# and then will deploy a new task definition to Amazon ECS, on every push
+# to the master branch.
+#
+# To use this workflow, you will need to complete the following set-up steps:
+#
+# 1. Create an ECR repository to store your images.
+#    For example: `aws ecr create-repository --repository-name guidemakerapp --region us-gov-west-1`.
+#    Replace the value of `ECR_REPOSITORY` in the workflow below with your repository's name.
+#    Replace the value of `aws-region` in the workflow below with your repository's region.
+#
+# 2. Create an ECS task definition, an ECS cluster, and an ECS service.
+#    For example, follow the Getting Started guide on the ECS console:
+#      https://us-east-2.console.aws.amazon.com/ecs/home?region=us-east-2#/firstRun
+#    Replace the values for `service` and `cluster` in the workflow below with your service and cluster names.
+#
+# 3. Store your ECS task definition as a JSON file in your repository.
+#    The format should follow the output of `aws ecs register-task-definition --generate-cli-skeleton`.
+#    Replace the value of `task-definition` in the workflow below with your JSON file's name.
+#    Replace the value of `container-name` in the workflow below with the name of the container
+#    in the `containerDefinitions` section of the task definition.
+#
+# 4. Store an IAM user access key in GitHub Actions secrets named `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`.
+#    See the documentation for each action used below for the recommended IAM policies for this IAM user,
+#    and best practices on handling the access key credentials.
+
+on:
+  release:
+    branches:
+      - main
+
+name: Deploy to Amazon ECS
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v1
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        #aws-access-key-id: ${{ secrets.USDA_RAVIN_AWS_ACCESS_KEY_ID }}
+        #aws-secret-access-key: ${{ secrets.USDA_RAVIN_AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-gov-west-1
+
+    - name: Login to Amazon ECR
+      id: login-ecr
+      uses: aws-actions/amazon-ecr-login@v1
+
+    - name: Build, tag, and push image to Amazon ECR
+      id: build-image
+      env:
+        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+        ECR_REPOSITORY: guidemakerapp
+        IMAGE_TAG: ${{ github.sha }}
+      run: |
+        # Build a docker container and
+        # push it to ECR so that it can
+        # be deployed to ECS.
+        # https://stackoverflow.com/questions/61242936/github-action-deploy-docker-to-aws-ecs-ecr
+        docker build -f docker-images/webapp/Dockerfile -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+        echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
+    - name: Fill in the new image ID in the Amazon ECS task definition
+      id: task-def
+      uses: aws-actions/amazon-ecs-render-task-definition@v1
+      with:
+        task-definition: .aws/first-run-task-definition.json
+        container-name: webapp
+        image: ${{ steps.build-image.outputs.image }}
+
+    - name: Deploy Amazon ECS task definition
+      uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+      with:
+        task-definition: ${{ steps.task-def.outputs.task-definition }}
+        service: webapp-service
+        cluster: mycluster
+        wait-for-service-stability: true
+
+    
+    
+```
+Given the auto CD doesnot work for USDA-AWS account. We need to use following steps:
+**Notes** You need to have AWS account with USDA, and need to setup `aws-saml-scinet`. More info and how to part for aws-saml-scinet is availbel [here](https://github.com/usda-scinet-tools/aws-saml-scinet)
+                     
+``` bash
+######################## STEPS ########################
 (awscli2) 🙏 cd /Users/admin/Documents/GITHUB_TOKEN/aws-saml-scinet
 (awscli2) 🙏 ./aws_saml_scinet.py 
 (awscli2) 🙏 cd /Users/admin/Documents/GuideMaker_ALL/GuideMaker/docker-images/webapp
@@ -432,8 +521,7 @@ jobs:
 (awscli2) 🙏 docker tag webapp 720171569227.dkr.ecr.us-east-1.amazonaws.com/guidemakerapp
 (awscli2) 🙏 docker login -u AWS -p $(aws ecr get-login-password --region us-east-1 --profile saml) 720171569227.dkr.ecr.us-east-1.amazonaws.com
 (awscli2) 🙏 docker push 720171569227.dkr.ecr.us-east-1.amazonaws.com/guidemakerapp
-                      
-                     
+                                        
 ```
 
 ## AWS web deployment
