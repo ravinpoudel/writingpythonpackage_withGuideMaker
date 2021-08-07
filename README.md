@@ -414,16 +414,8 @@ jobs:
 
 ```
 
-## How to create a package in gitHub?
-
-## CD/CI with workflows and actions file
-
-## Automate python package creation
-- manage package access
-
 ## Release a version of the software
 
-## Put docker images in github registry
 
 ## Automate deployment to AWS Fargate
 - resource setup
