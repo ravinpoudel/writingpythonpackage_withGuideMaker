@@ -1,4 +1,7 @@
 # How to start a python package?
+
+**Author: Ravin Poudel**
+
 Starting a python package might be overwhelming to newbies, which was the case for me. In the beginning, I was following the skeleton/folder structures from some of the published python packages from my mentors or lab- which was a good way to start. Even better will be using the tools such as cookie-cutter to structure the architecture(skeleton) for a python package. There are many excellent cookie-cutter templates with different features- such as the option to generate YAML files for CircleCI, Travis CI, Conda recipe, etc. For GuideMaker, I use the [template from conda](https://github.com/conda/cookiecutter-conda-python). You can follow the setup steps as described in the repo. During the setup, you can provide various metadata for the package as well.
 
 
