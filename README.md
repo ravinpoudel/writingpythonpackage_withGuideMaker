@@ -260,7 +260,7 @@ Coverage XML written to file coverage.xml
 An example of writing pytest for functions in the software is available [here](https://github.com/USDA-ARS-GBRU/GuideMaker/tree/main/tests).
 
 
-## [CircleCI](https://app.circleci.com/pipelines/github/USDA-ARS-GBRU/GuideMaker) & [Code Quality](https://www.codacy.com/gh/USDA-ARS-GBRU/GuideMaker/dashboard?utm_source=github.com&utm_medium=referral&utm_content=USDA-ARS-GBRU/GuideMaker&utm_campaign=Badge_Grade)
+## [CircleCI](https://app.circleci.com/pipelines/github/USDA-ARS-GBRU/GuideMaker)
 
 CircleCI is a modern continuous integration and continuous delivery (CI/CD) platform. CircleCI automates the build, test, and deployment of software.CircleCI is a cloud-based CI/CD tool that automates installation and delivery procedures. It offers quick configuration and maintenance without any complexities. Since it is a cloud-based CI/CD tool, it eliminates the redundancy of a dedicated server and cuts down the cost of maintenance of a constant local server host. Moreover, the cloud-based server plans are scalable, robust, and facilitate faster deployment of applications.
 
@@ -322,7 +322,7 @@ jobs:
 ```
 
 
-## [Coverage](https://app.codecov.io/gh/USDA-ARS-GBRU/GuideMaker)
+## [Coverage](https://app.codecov.io/gh/USDA-ARS-GBRU/GuideMaker) & [Code Quality](https://www.codacy.com/gh/USDA-ARS-GBRU/GuideMaker/dashboard?utm_source=github.com&utm_medium=referral&utm_content=USDA-ARS-GBRU/GuideMaker&utm_campaign=Badge_Grade)
 Code coverage is the percentage of code that is covered by automated tests. Code coverage measurement simply determines which statements in a body of code have been executed through a test run, and which statements have not. In general, a code coverage system collects information about the running program and then combines that with source information to generate a report on the test suite's code coverage.
 [More information @](https://openclover.org/doc/manual/4.2.0/general--about-code-coverage.html)
     
