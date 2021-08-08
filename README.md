@@ -517,7 +517,7 @@ Given the auto CD does not work for the USDA-AWS account. We need to use the fol
 - pull request
 - Need to make comments prior so that someone will start looking your code for branch merge
 
-```YAML
+```
 {% set version = "0.2.0" %}
 {% set name = "GuideMaker" %}
 {% set sha256 = "24704654e4f37107267f825cb103b219f7bde8ea92d53ededf90582903cf139a" %}
