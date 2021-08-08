@@ -64,7 +64,7 @@ Following is the folder tree for repo_name: `GuideMaker` where package_name: `gu
 ```
 
 ## setup.py
-setup.py is the file with the actual instructions on how to build the software. These instructions might have some configuration options, e.g. for unit tests you might be able to indicate whether test coverage should be computed or not, or the install prefix etc. Additionally, this file allows one to define the package requirement as well as the metadata about the package.
+`setup.py` is the file with the actual instructions on how to build the software. These instructions might have some configuration options, e.g. for unit tests. Additionally, this file allows one to define the package requirement as well as the metadata about the package.
 
 ```
 from setuptools import setup
@@ -163,7 +163,7 @@ setup(
 
 ## setup.cfg
 
-setup.cfg is also a package configuration file. This file allows adding additional information or steps/commands needed while building the package. Instructions in `setup.cfg` are read by `setup.py` and executed while installing a package with pip install.
+`setup.cfg` is also a package configuration file. This file allows adding additional information or steps/commands needed while building the package. Instructions in `setup.cfg` are read by `setup.py` and executed while installing a package with pip install.
   
 [Documentation of python configuration files](https://docs.python.org/2.7/distutils/configfile.html)
 
@@ -201,11 +201,10 @@ universal=1
 
 ```
 
-
-
 ## MANIFEST.in
 When building a source distribution for your package, by default only a minimal set of files are included. You may find yourself wanting to include extra files in the source distribution, such as an authors/contributors file, a docs/ directory, or a directory of data files used for testing purposes. There may even be extra files that you need to include; for example, if your setup.py computes your project’s long_description by reading from both a README and a changelog file, you’ll need to include both those files in the sdist so that people that build or install from the sdist get the correct results.
-Let's look more into another file `MANIFEST.in`
+
+Let's look more into `MANIFEST.in`
 
 ```
 include versioneer.py
@@ -225,8 +224,6 @@ include guidemaker/data/*
 include guidemaker/data/Pseudomonas_aeruginosa.gbk.gz
 include guidemaker/data/Carsonella_ruddii.gbk.gz
 ```
-
-
 
 Now you are ready to install your python package!!!
 
