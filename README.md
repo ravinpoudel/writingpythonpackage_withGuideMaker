@@ -394,9 +394,6 @@ jobs:
 
 ```
 
-## Release a version of the software
-
-
 ## Automate deployment to AWS Fargate
 Deployment to AWS Fargate can also be automated using workflow and actions. You can use the following actions file to do so. It should work for any regular AWS account; however, will not work for the USDA-AWS account. One of the information/authentications we need to add to the actions file is the account credential for the AWS account, which is fairly constant or does not have to be changed (every 15 min). In the case of USDA-AWS, the credential expires with some (10-15) mins and you need to generate a new token with your username. Thus, deployment via actions is that that smooth. So, rather we have been doing it manually. 
 
