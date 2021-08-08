@@ -518,10 +518,11 @@ Given the auto CD does not work for the USDA-AWS account. We need to use the fol
 - Need to make comments prior so that someone will start looking your code for branch merge
 
 ```
-{% set version = "0.2.0" %}
-{% set name = "GuideMaker" %}
-{% set sha256 = "24704654e4f37107267f825cb103b219f7bde8ea92d53ededf90582903cf139a" %}
-{% set user = "USDA-ARS-GBRU" %}
+# Note in the actual file raw == set. I got error while building github pages with set so replaced with raw. In the actual settign, use set.
+{% raw version = "0.2.0" %}
+{% raw name = "GuideMaker" %}
+{% raw sha256 = "24704654e4f37107267f825cb103b219f7bde8ea92d53ededf90582903cf139a" %}
+{% raw user = "USDA-ARS-GBRU" %}
 
 
 package:
