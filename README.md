@@ -517,5 +517,79 @@ Given the auto CD does not work for the USDA-AWS account. We need to use the fol
 - pull request
 - Need to make comments prior so that someone will start looking your code for branch merge
 
+```
+{% set version = "0.2.0" %}
+{% set name = "GuideMaker" %}
+{% set sha256 = "24704654e4f37107267f825cb103b219f7bde8ea92d53ededf90582903cf139a" %}
+{% set user = "USDA-ARS-GBRU" %}
+
+
+package:
+  name: '{{ name|lower }}'
+  version: '{{ version }}'
+
+
+source:
+  url: https://github.com/{{ user }}/{{ name }}/archive/v{{ version }}.tar.gz
+  sha256: {{ sha256 }}
+
+
+build:
+  number: 0
+  noarch: python
+  entry_points:
+    - guidemaker=guidemaker.cli:main
+  script: python -m pip install --no-deps --ignore-installed .
+
+
+requirements:
+  host:
+    - pip
+    - python >=3.6
+    - biopython==1.76
+  run:
+    - pip
+    - python >=3.6
+    - biopython==1.76
+    - numpy >=1.11
+    - pybedtools>=0.8.2
+    - nmslib>=2.0.6
+    - pandas>=1.0.0
+    - pyyaml>=5.4.1
+    - regex==2020.11.13
+    - altair
+    - streamlit>=0.81.0
+    - pytest>=4.6
+    - pytest-cov
+    - streamlit_tags>=1.2.6
+    - pdoc3
+
+
+test:
+  commands:
+    - {{ name }} --version | grep '{{ version }}'
+    - {{ name }} --help
+
+
+
+about:
+  home: https://github.com/USDA-ARS-GBRU/GuideMaker
+  license: 'CC0 1.0'
+  license_family: 'PUBLIC-DOMAIN'
+  license_file: LICENSE.txt
+  summary: 'GuideMaker: Software to design gRNAs pools in non-model genomes and CRISPR-Cas systems'
+
+
+extra:
+  recipe-maintainers:
+    - arivers
+    - ravinpoudel
+  identifiers:
+    - biotools:GuideMaker
+    - doi:10.5281/zenodo.4849258
+
+
+```
+
 ## How to develop a web app using streamlit?
 
