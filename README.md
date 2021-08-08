@@ -238,6 +238,8 @@ Congratulations!!!!
 This is how you can get started. Now, you need to add more functions to your packages. The actual code that has been implemented for `__main__.py` and `__cli__.py` are available [here](https://github.com/USDA-ARS-GBRU/GuideMaker/tree/main/guidemaker)
 
 ## Pytest
+Testing code is an important aspect of software development. Bascially, you can use a small input data, and test/assert if the functions produce the results as expected or not. You can read more on [Testing Code Here](https://docs.python-guide.org/writing/tests/)
+
 ```bash
 (myenv) 🙏 pip install pytest-cov
 (myenv) 🙏 pytest
