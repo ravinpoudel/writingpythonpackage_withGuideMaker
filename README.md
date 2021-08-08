@@ -819,4 +819,4 @@ if __name__ == "__main__":
     main()
 
 ```
-**[Here is the result]**(https://guidemaker.app.scinet.usda.gov), which is hosted via AWS Fargate.
+**[Here is the result](https://guidemaker.app.scinet.usda.gov)**, which is hosted via AWS Fargate.
