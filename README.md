@@ -508,7 +508,7 @@ Given the auto CD does not work for the USDA-AWS account. We need to use the fol
 (awscli2) 🙏 docker login -u AWS -p $(aws ecr get-login-password --region us-east-1 --profile saml) 720171569227.dkr.ecr.us-east-1.amazonaws.com
 
 ## if the above code gives error...
-(awscli2) 🙏 ravinpoudel@ aws ecr get-login --profile saml
+(awscli2) 🙏 aws ecr get-login --profile saml
 ## the above code will print the login info, then copy and paste logininfo:::::
 (awscli2) 🙏 docker login -u AWS -p eyJwY...........XXXXXX 720171569227.dkr.ecr.us-east-1.amazonaws.com
 
