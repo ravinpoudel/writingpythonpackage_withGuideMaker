@@ -519,6 +519,9 @@ Given the auto CD does not work for the USDA-AWS account. We need to use the fol
 
 Note: Once the new docker container is pushed to ECR, we need to stop the running instance in AWS-Elastic Container Service. This is because, the running instances will keep using the old container unless you restart the instance. Thus, if you stopped the running instance, then the load-blancer will kick-in to keep the minimum number of running instance (which is 1 in our case). Now the new instance will use the latest container image.
 
+Inorder to stop the instance at AWS-Elastic Container Service, we need to login to aws account. USDA-ARS have their one way of logging to AWS account. Credential used for SCINET is passed on the following link:
+https://auth.scinet.usda.gov/auth/realms/scinet.usda.gov/protocol/saml/clients/amazon-aws
+
 ## AWS web deployment
  - Route 53
  - Load balancer
